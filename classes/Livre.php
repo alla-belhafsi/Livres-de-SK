@@ -6,15 +6,18 @@ class Livre {
     private DateTime $dateParution;
     private int $nbPages;
     private int $prix;
-    //private array $bibliographies;
+    private Auteur $auteur;
+    
     
 
-    public function __construct(string $titre, string $dateParution, int $nbPages,  int $prix) {
+    public function __construct(string $titre, string $dateParution, int $nbPages,  float $prix, Auteur $auteur) {
         $this->titre = $titre;
         $this->dateParution = new DateTime($dateParution);
         $this->nbPages = $nbPages;
         $this->prix = $prix;
-        //$this->bibliographies = [];
+        $this->auteur = $auteur;
+        $this->auteur->addLivre($this);
+        
         
     }
 
@@ -36,7 +39,7 @@ class Livre {
         return $this;
     }
 
-    public function getDateParution(): DateTime {
+    public function getDateParution(): string {
         return $this->dateParution->format("Y");
     }
 
@@ -45,7 +48,7 @@ class Livre {
         return $this;
     }
 
-    public function getPrix(): int {
+    public function getPrix(): float {
         return $this->prix;
     }
 
@@ -62,27 +65,6 @@ class Livre {
         $this->auteur = $auteur;
         return $this;
     }
-
-    //public function getBibliographies() {
-    //    return $this->bibliographies;
-    //}
-
-    //public function setBibliographies($bibliographies) {
-    //    $this->bibliographies = $bibliographies;
-    //    return $this;
-    //} 
-
-    //public function addBibliographie(Bibliographie $bibliographie) {
-    //    $this->bibliographies[] = $bibliographie;
-    //}
-
-    //public function afficherBibliographies() {
-    //    $result = "<h2>Livres de Stephen King</h2>";
-    //    foreach ($this->bibliographies as $bibliographie) {
-    //        $result .=$bibliographie->getTitre()." (".$bibliographie->getDateParution()."): ".$bibliographie->getNbPages()." pages / ".$bibliographie->getPrix()." <br>";
-    //    }
-    //    return $result;
-    //}
 
     public function __toString() {   
         return $this->titre." ".$this->dateParution->format("Y")." ".$this->nbPages." ".$this->prix;

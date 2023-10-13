@@ -1,7 +1,7 @@
 <?php
 
 class Auteur {   
-    private string $prenom;
+    private string $prenom; 
     private string $nom;
     private array $livres;
     
@@ -43,7 +43,7 @@ class Auteur {
     }
 
     public function afficherBibliographie() {
-        $result = "<h2>Livres de Stephen King</h2>";
+        $result = "<h2>Livres de $this</h2>";
         foreach ($this->livres as $livre) {
             $result .=$livre->getTitre()." (".$livre->getDateParution()."): ".$livre->getNbPages()." pages / ".$livre->getPrix()." <br>";
         }
