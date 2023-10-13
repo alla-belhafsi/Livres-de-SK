@@ -70,7 +70,7 @@ class Livre {
     //public function setBibliographies($bibliographies) {
     //    $this->bibliographies = $bibliographies;
     //    return $this;
-    //}
+    //} 
 
     //public function addBibliographie(Bibliographie $bibliographie) {
     //    $this->bibliographies[] = $bibliographie;
@@ -84,7 +84,7 @@ class Livre {
     //    return $result;
     //}
 
-    public function __toString() {
+    public function __toString() { 
         return $this->titre." ".$this->dateParution->format("Y")." ".$this->nbPages." ".$this->prix;
     }
 }

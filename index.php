@@ -8,7 +8,7 @@ spl_autoload_register(function ($class_name) {
 
 
 // Auteurs
-$stephenKing = new Auteur("Stephen", "King");
+$stephenKing = new Auteur("Stephen", "King"); 
 
 // Livres
 $sk1 = new Livre("Ca", "1986", 1138, 20);
