@@ -3,12 +3,12 @@
 class Auteur {
     private string $prenom;
     private string $nom;
-    private array $bibliographies;
+    private array $livres;
     
     public function __construct(string $prenom, string $nom) {
         $this->prenom = $prenom;
         $this->nom = $nom;
-        $this->bibliographies = [];
+        $this->livres = [];
     }
 
     public function getPrenom() {
@@ -29,27 +29,23 @@ class Auteur {
          return $this;
     }
 
-    public function getInfos() {
-        return $this->getPrenom()." ".$this->getNom()."<br>";
+    public function getLivres() {
+        return $this->livres;
     }
 
-    public function getBibliographies() {
-        return $this->bibliographies;
-    }
-
-    public function setBibliographies($bibliographies) {
-        $this->bibliographies = $bibliographies;
+    public function setLivres($livres) {
+        $this->livres = $livres;
         return $this;
     }
 
-    public function addBibliographie(Bibliographie $bibliographie) {
-        $this->bibliographies[] = $bibliographie;
+    public function addLivre(Livre $livre) {
+        $this->livres[] = $livre;
     }
 
-    public function afficherBibliographies() {
+    public function afficherBibliographie() {
         $result = "<h2>Livres de Stephen King</h2>";
-        foreach ($this->bibliographies as $bibliographie) {
-            $result .=$bibliographie->getTitre()." (".$bibliographie->getDateParution()."): ".$bibliographie->getNbPages()." pages / ".$bibliographie->getPrix()." <br>";
+        foreach ($this->livres as $livre) {
+            $result .=$livre->getTitre()." (".$livre->getDateParution()."): ".$livre->getNbPages()." pages / ".$livre->getPrix()." <br>";
         }
         return $result;
     }

@@ -6,7 +6,7 @@ class Livre {
     private DateTime $dateParution;
     private int $nbPages;
     private int $prix;
-    private array $bibliographies;
+    //private array $bibliographies;
     
 
     public function __construct(string $titre, string $dateParution, int $nbPages,  int $prix) {
@@ -14,7 +14,7 @@ class Livre {
         $this->dateParution = new DateTime($dateParution);
         $this->nbPages = $nbPages;
         $this->prix = $prix;
-        $this->bibliographies = [];
+        //$this->bibliographies = [];
         
     }
 
@@ -37,7 +37,7 @@ class Livre {
     }
 
     public function getDateParution(): DateTime {
-        return $this->dateParution->format(Y);
+        return $this->dateParution->format("Y");
     }
 
     public function setDateParution($dateParution) {
@@ -63,26 +63,26 @@ class Livre {
         return $this;
     }
 
-    public function getBibliographies() {
-        return $this->bibliographies;
-    }
+    //public function getBibliographies() {
+    //    return $this->bibliographies;
+    //}
 
-    public function setBibliographies($bibliographies) {
-        $this->bibliographies = $bibliographies;
-        return $this;
-    }
+    //public function setBibliographies($bibliographies) {
+    //    $this->bibliographies = $bibliographies;
+    //    return $this;
+    //}
 
-    public function addBibliographie(Bibliographie $bibliographie) {
-        $this->bibliographies[] = $bibliographie;
-    }
+    //public function addBibliographie(Bibliographie $bibliographie) {
+    //    $this->bibliographies[] = $bibliographie;
+    //}
 
-    public function afficherBibliographies() {
-        $result = "<h2>Livres de Stephen King</h2>";
-        foreach ($this->bibliographies as $bibliographie) {
-            $result .=$bibliographie->getTitre()." (".$bibliographie->getDateParution()."): ".$bibliographie->getNbPages()." pages / ".$bibliographie->getPrix()." <br>";
-        }
-        return $result;
-    }
+    //public function afficherBibliographies() {
+    //    $result = "<h2>Livres de Stephen King</h2>";
+    //    foreach ($this->bibliographies as $bibliographie) {
+    //        $result .=$bibliographie->getTitre()." (".$bibliographie->getDateParution()."): ".$bibliographie->getNbPages()." pages / ".$bibliographie->getPrix()." <br>";
+    //    }
+    //    return $result;
+    //}
 
     public function __toString() {
         return $this->titre." ".$this->dateParution->format("Y")." ".$this->nbPages." ".$this->prix;
