@@ -45,7 +45,7 @@ class Auteur {
     public function afficherBibliographie() {
         $result = "<h2>Livres de $this</h2>";
         foreach ($this->livres as $livre) {
-            $result .=$livre->getTitre()." (".$livre->getDateParution()."): ".$livre->getNbPages()." pages / ".$livre->getPrix()." <br>";
+            $result .=$livre->getTitre()." (".$livre->getDateParution()."): ".$livre->getNbPages()." pages / ".$livre->getPrix()." €<br>";
         }
         return $result;
     }
